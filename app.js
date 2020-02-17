@@ -20,7 +20,11 @@ app.post("/", function(req, res){
       console.log("Error! "+error);
     } else {
       console.log("No error. now read the file: \n");
-      console.log(data);
+      console.log(data.toString()); //This added to "stringify" the output
+
+      res.write("<h1> The file reads: </h1>");
+      res.write("<p>"+data.toString()+"</p>");
+      res.send();
     }
   });
 });
